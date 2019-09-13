@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config sharedLib="library">
+	<cores adminPath="/admin" hostPort="${jetty.port}"
+		hostContext="${hostContext}">
+		<core name="activeCustomers" instanceDir="activeCustomers"
+			dataDir="[[search.home]]/activeCustomers" />
+
+		<core name="carriers" instanceDir="carriers"
+			dataDir="[[search.home]]/carriers" />
+
+		<core name="cities" instanceDir="cities"
+			dataDir="[[search.home]]/cities" />
+
+		<core name="customerAddresses" instanceDir="customerAddresses"
+			dataDir="[[search.home]]/customerAddresses" />
+
+		<core config="config.xml" name="servicerequest_questions_en"
+			instanceDir="servicerequest_questions_en" schema="schema.xml"
+			dataDir="[[search.home]]/servicerequest_questions" />
+	</cores>
+</config>
