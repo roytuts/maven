@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>common</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../common</relativePath>
+	</parent>
+	
+	<artifactId>example-ear</artifactId>
+	<packaging>ear</packaging>
+	<description>Enterprise archive for Sample Application</description>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<version>6</version>
+					<fileNameMapping>no-version</fileNameMapping>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<skinnyWars>true</skinnyWars>
+					<applicationName>example-ear</applicationName>
+					<displayName>ApplicationEAR</displayName>
+					<finalName>example-ear</finalName>
+					<modules>
+						<webModule>
+							<groupId>${project.parent.groupId}</groupId>
+							<artifactId>example-web</artifactId>
+							<contextRoot>/example</contextRoot>
+							<bundleFileName>bookingr-10-web.war</bundleFileName>
+						</webModule>
+						<ejbModule>
+							<groupId>${project.parent.groupId}</groupId>
+							<artifactId>example-ejb</artifactId>
+						</ejbModule>
+						<jarModule>
+							<groupId>${project.parent.groupId}</groupId>
+							<artifactId>example-jar</artifactId>
+							<bundleDir>/</bundleDir>
+						</jarModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>example-web</artifactId>
+			<version>${project.parent.version}</version>
+			<type>war</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>example-ejb</artifactId>
+			<version>${project.parent.version}</version>
+			<type>ejb</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>example-jar</artifactId>
+			<version>${project.parent.version}</version>
+			<type>jar</type>
+		</dependency>
+	</dependencies>
+</project>
