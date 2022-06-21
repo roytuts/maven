@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/maven-filtering-replace-multiple-tokens-during-build/
+Please follow the tutorial https://roytuts.com/maven-filtering-replace-multiple-tokens-during-build/
