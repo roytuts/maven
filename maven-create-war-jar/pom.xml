@@ -82,7 +82,7 @@
                            <manifest>
                            		<addClasspath>true</addClasspath>
                         		<classpathPrefix>lib/</classpathPrefix>
-                                 <mainClass>fully.qualified.MainClass</mainClass>
+                                 <mainClass>fully.qualified.packagename.MainClass</mainClass>
                            </manifest>
                        </archive>
                        <descriptorRefs>
